@@ -21,10 +21,10 @@ public class FileDataManager{
 			cfgFile.createNewFile();
 }
 			catch(Exception e){
-				System.out.println("§8§l=-=-=-=-=-=<§4§lERROR§8§l>=-=-=-=-=-=");
-				System.out.println("§c§lNie mozna utworzyc configu, wylacznie pluginu...");
+				System.out.println("Â§8Â§l=-=-=-=-=-=<Â§4Â§lERRORÂ§8Â§l>=-=-=-=-=-=");
+				System.out.println("Â§cÂ§lNie mozna utworzyc configu, wylacznie pluginu...");
 				Bukkit.getServer().getPluginManager().disablePlugin(Main.plugin);
-				System.out.println("§8§l=-=-=-=-=-=<§4§lERROR§8§l>=-=-=-=-=-=");
+				System.out.println("Â§8Â§l=-=-=-=-=-=<Â§4Â§lERRORÂ§8Â§l>=-=-=-=-=-=");
 }
 }
 		Main.plugin.getConfig().options().copyDefaults(true);
@@ -38,9 +38,7 @@ public class FileDataManager{
 	public static void reloadCfg(){
 		Main.plugin.reloadConfig();
 		Main.plugin.saveConfig();
-		Main.EnableBarAPI = Main.plugin.getConfig().getBoolean("enableBarAPI");
-		Main.CaptchaLenght = Main.plugin.getConfig().getInt("captchaLenght");
-		Main.EnableChatMessage = Main.plugin.getConfig().getBoolean("enableChatMessage");
+		load();
 }
 	public static void spacer(Player p){
 		p.sendMessage("");
