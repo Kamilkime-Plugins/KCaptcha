@@ -1,0 +1,17 @@
+name: KCaptcha
+main: me.kamilkime.KCaptcha.Main
+version: 1.0
+softdepend: [BarAPI]
+author: Kamilkime
+website: http://youtube.pl/kamilkime
+
+commands:
+  kcaptcha:
+    description: Reload config file
+
+permissions:
+  kcaptcha.*:
+    default: op
+    children:
+      kcaptcha.bypass: true
+      kcaptcha.reload: true

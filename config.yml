@@ -1,0 +1,3 @@
+enableBarAPI: true
+enableChatMessage: true
+captchaLenght: 6
