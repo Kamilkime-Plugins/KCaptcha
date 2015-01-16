@@ -20,10 +20,14 @@ public class Main extends JavaPlugin{
 		plugin = this;
 		FileDataManager.checkMainDir();
 		FileDataManager.checkCfgFile();
+		FileDataManager.checkIPs();
 		FileDataManager.load();
 		
 		if(Bukkit.getOnlinePlayers().length > 0){
 			for(Player p : Bukkit.getOnlinePlayers()){
+				if(FileDataManager.getIpFile().get(p.getName()) !=null){
+					return;
+}
 				if(!p.hasPermission("kchapta.bypass")){
 					String pName = p.getName();
 					joinMap.put(pName, true);

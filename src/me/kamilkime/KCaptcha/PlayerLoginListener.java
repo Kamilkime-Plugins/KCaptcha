@@ -12,6 +12,9 @@ public class PlayerLoginListener implements Listener{
 	public void onLogin(PlayerLoginEvent e){
 		String pName = e.getPlayer().getName();
 		
+		if(FileDataManager.getIpFile().get(pName) !=null){
+			return;
+}
 		if(!e.getPlayer().hasPermission("kchapta.bypass")){
 			Main.joinMap.put(pName, true);
 }

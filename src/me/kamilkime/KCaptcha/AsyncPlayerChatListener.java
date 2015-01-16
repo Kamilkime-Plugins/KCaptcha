@@ -4,6 +4,7 @@ import me.confuser.barapi.BarAPI;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -55,6 +56,16 @@ public class AsyncPlayerChatListener implements Listener{
 					p.sendMessage("§8§l=-=-=-=<§a§lOchrona botowa§8§l>=-=-=-=");
 					p.sendMessage("§6§lWeryfikacja pomyslna\nMozesz juz uzywac czatu");
 					p.sendMessage("§8§l=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+					
+					YamlConfiguration ips = FileDataManager.getIpFile();
+					ips.set(pName, e.getPlayer().getAddress().getAddress().toString().replaceAll("/", ""));
+					try{
+						ips.save(FileDataManager.ipFile);
+}
+					catch(Exception ex){
+						ex.printStackTrace();
+}
+
 					FileDataManager.spacer(p);
 }
 				if(Bukkit.getPluginManager().getPlugin("BarAPI") !=null){
