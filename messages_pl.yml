@@ -1,0 +1,80 @@
+#############################
+#  KONFIGURACJA WIADOMOSCI  #
+#############################
+
+# UWAGA! Polskie litery diakrytyzowane moga zniszczyc dzialanie pliku, zaleca sie nieuzywania ich
+# Wszystkie wiadomosci moga uzywac kodow koloru ze znakiem '&' (np. &4 jako kolor ciemnoczerwony)
+# Zmienne do uzycia w wiadomosciach:
+#   {CAPTCHA} albo {CODE}  ->  Pozniej zamieniane na kod CAPTCHA, ktory gracz musi wpisac
+#   {DATE}  -> Data weryfikacji gracza, uzywana tylko w komendzie '/kcaptcha info'
+#   {UUID}  -> UUID gracza, uzywane tylko w komendzie '/kcaptcha info'
+#   {NAME}  -> Nick gracza, uzywany tylko w komendzie '/kcaptcha info'
+#   {IP}  -> Adres IP gracza, uzywany tylko w komendzie '/kcaptcha info'
+#   {COMMAND}  -> Zmieniany tylko wtedy, gdy ktos niepoprawnie uzyje komendy '/kcaptcha'
+
+##########################
+#  WIADOMOSCI NA CZACIE  #
+##########################
+
+msgYouHaveToCompleteCaptcha:
+- ''
+- '    &8---------------------'
+- ' &6Wpisz na czacie kod &7{CAPTCHA}'
+- ' &6aby udowodnic ze nie jestes botem!'
+- '    &8---------------------'
+- ''
+
+msgCaptchaComplete:
+- ''
+- '    &8------------------'
+- ' &6Twoje konto zostalo zweryfikowane!'
+- ' &6Mozesz juz uzywac komend i czatu!'
+- '    &8------------------'
+- ''
+
+msgReloadCommand:
+- '&7&l[KCaptcha] &6Config i wiadomosci przeladowane!'
+
+msgInfoCommand:
+- ''
+- '    &8------------------------------------'
+- ' &6Nick&8: &7{NAME}'
+- ' &6UUID&8: &7{UUID}'
+- ' &6Adres IP&8: &7{IP}'
+- ' &6Data weryfikacji: &7{DATE}'
+- '    &8------------------------------------'
+- ''
+
+msgHelpCommand:
+- ''
+- '    &8------------------------'
+- ' &6/kcaptcha help &8- &7pokazuje te informacje'
+- ' &6/kcaptcha info <nick> &8- &7pokazuje informacje o zweryfikowanym graczu'
+- ' &6/kcaptcha reload &8- &7przeladowuje config i wiadomosci'
+- '    &8------------------------'
+- ''
+
+msgNoPermission:
+- '&cNie masz uprawnien!'
+
+msgNoSuchPlayer:
+- '&cNie ma zweryfikowanego gracza o wakim nicku!'
+
+msgWrongSyntax:
+- '&cPoprawne uzycie: {COMMAND}'
+
+msgFeatureNotEnabled:
+- '&cTa opcja nie zostala uruchomiona!'
+
+##################################
+#  WIADOMOSCI NA PASKU HP BOSSA  #
+##################################
+
+# Ponizsze wiadomosci sa wyswietlane na pasku HP bossa (na gorze ekranu)
+# Ta opcja dziala tylko jesli zostala wlaczona w configu
+# Wszystkie te wiadomosci musza miec 1-64 znaki, w przeciwnym razie zostana przyciete do 64 znakow
+# Pamietaj, aby sprawdzic jak dlugi bedzie kod CAPTCHA!
+# Przypomnienie: dlugosc kodu CAPTCHA ustawiasz w configu
+
+barYouHaveToCompleteCaptcha: '&6&lWpisz na czacie kod &7&l{CAPTCHA} &6&laby moc pisac!'
+barCaptchaComplete: '&6&lKonto zweryfikowane, mozesz juz uzywac komend i czatu!'

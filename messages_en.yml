@@ -1,0 +1,79 @@
+###########################
+#  MESSAGE CONFIGURATION  #
+###########################
+
+# All messages support '&' color codes (e.g. &4 for dark red)
+# Available message variables:
+#   {CAPTCHA} or {CODE}  ->  changed to a CAPTCHA code player has to write
+#   {DATE}  -> Player verification date, used only in '/kcaptcha info' command
+#   {UUID}  -> Player UUID, used only in '/kcaptcha info' command
+#   {NAME}  -> Player name, used only in '/kcaptcha info' command
+#   {IP}  -> Player IP address, used only in '/kcaptcha info' command
+#   {COMMAND}  -> Used only when user issues '/kcaptcha' command incorrectly
+
+###################
+#  CHAT MESSAGES  #
+###################
+
+msgYouHaveToCompleteCaptcha:
+- ''
+- '    &8--------------------'
+- ' &6Type &7{CAPTCHA} &6on chat to prove'
+- ' &6you are a human, not a bot!'
+- '    &8--------------------'
+- ''
+
+msgCaptchaComplete:
+- ''
+- '    &8------------------'
+- ' &6Your account has been validated!'
+- ' &6You can now use chat and commands!'
+- '    &8------------------'
+- ''
+
+msgReloadCommand:
+- '&7&l[KCaptcha] &6Config and messages reloaded!'
+
+msgInfoCommand:
+- ''
+- '    &8------------------------------------'
+- ' &6Name&8: &7{NAME}'
+- ' &6UUID&8: &7{UUID}'
+- ' &6IP Address&8: &7{IP}'
+- ' &6Verification date: &7{DATE}'
+- '    &8------------------------------------'
+- ''
+
+msgHelpCommand:
+- ''
+- '    &8----------------------'
+- ' &6/kcaptcha help &8- &7shows this info'
+- ' &6/kcaptcha info <nick> &8- &7shows info about a verified player'
+- ' &6/kcaptcha reload &8- &7reloads config and messages'
+- '    &8----------------------'
+- ''
+
+msgNoPermission:
+- '&cYou dont have permission to do this!'
+
+msgNoSuchPlayer:
+- '&cThere is no verified player with that name!'
+
+msgWrongSyntax:
+- '&cCorrect usage: {COMMAND}'
+
+msgFeatureNotEnabled:
+- '&cThis feature is not enabled!'
+
+##################
+#  BAR MESSAGES  #
+##################
+
+# These messages are shown on a boss bar (top of the screen)
+# This feature works only if you enabled it in the config file
+# All messages must have 1-64 characters, all longer strings will be trimmed to 64 characters
+# Remember to check how long will be the CAPTCHA code!
+# Reminder: CAPTCHA length is set in the config file
+
+barYouHaveToCompleteCaptcha: '&6&lType &7&l{CAPTCHA} &6&lon chat to prove you are a human!'
+barCaptchaComplete: '&6&lAccount validated, you can now use chat and commands!'
