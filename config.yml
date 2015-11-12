@@ -1,0 +1,76 @@
+#####################
+#  GLOBAL SETTINGS  #
+#####################
+
+# DO NOT CHANGE THIS NUMBER !!!
+configVersion: 2
+
+# Do you want to remember verified player UUIDs?
+# If this option is enabled every player has to complete CAPTCHA only once
+# Otherwise - they have to complete CAPTCHA every time they join the server
+rememberUUIDs: true
+
+# How long do you want a CAPTCHA code to be?
+captchaLength: 7
+
+# How long do you want a message to be displayed on the boss bar?
+bossBarTime: 10
+
+# What permission must a player have to bypass CAPTCHA protection?
+bypassPermission: "kcaptcha.bypass"
+
+# What permission must a player have to reload config and messages data?
+reloadPermission: "kcaptcha.reload"
+
+# What permission must a player have to check info about a verified player?
+infoPermission: "kcaptcha.info"
+
+# What commands is a player able to use before CAPTCHA checking?
+# All commands MUST be listed in a lower case form (only small letters, no capitals)!
+cmdsBeforeCaptcha:
+- 'login'
+- 'register'
+- 'helpop'
+
+######################
+#  MESSAGE SETTINGS  #
+######################
+
+# What language do you want your messages to be in?
+# By default the only available languages are Polish (pl) and English (en)
+# You can add your own language option, just see a tutorial on the spigot plugin web site
+lang: en
+
+# Do you want to send a chat message with the CAPTCHA?
+enableChatMessage: true
+
+# Do you want to show CAPTCHA code on a boss bar?
+enableBarMessage: true
+
+##################
+# TITLE SETTINGS #
+##################
+
+# Do you want to enable CAPTCHA showing as a title?
+enableTitle: true
+
+# How long should the title fade in (in seconds)?
+titleFadeIn: 5
+
+# How long should the title be displayed (in seconds)?
+titleStay: 10
+
+# How long should the title fade out (in seconds)?
+titleFadeOut: 5
+
+# Do you want to enable additional message showing as a subtitle?
+enableSubtitle: true
+
+# How long should the subtitle fade in (in seconds)?
+subtitleFadeIn: 5
+
+# How long should the subtitle be displayed (in seconds)?
+subtitleStay: 10
+
+# How long should the subtitle fade out (in seconds)?
+subtitleFadeOut: 5

@@ -1,0 +1,15 @@
+# This plugin uses BarAPI by James Mortemore (https://github.com/confuser/BarAPI)
+# so the boss bar implementation was not written by me.
+# I only added this API plugin code directly into my plugin
+# so no one has to add a BarAPI plugin to their server.
+
+name: KCaptcha
+main: pl.kamilkime.kcaptcha.Main
+version: 1.2
+author: Kamilkime
+website: http://youtube.pl/kamilkime
+
+commands:
+  kcaptcha:
+    description: "Main KCaptcha plugin command"
+    aliases: [captcha, kcode, code, ksecure, kantibot]
