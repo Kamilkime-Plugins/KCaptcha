@@ -163,7 +163,7 @@ public class v1_8Fake extends FakeDragon {
 			watcher = DataWatcher.getConstructor(new Class<?>[] { Entity }).newInstance(dragon);
 			Method a = Util.getMethod(DataWatcher, "a", new Class<?>[] { int.class, Object.class });
 
-			a.invoke(watcher, 5, isVisible() ? (byte) 0 : (byte) 0x20);
+			a.invoke(watcher, 5, (byte) 0x20);
 			a.invoke(watcher, 6, (Float) health);
 			a.invoke(watcher, 7, (Integer) 0);
 			a.invoke(watcher, 8, (Byte) (byte) 0);

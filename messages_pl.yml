@@ -12,6 +12,9 @@
 #   {IP}  -> Adres IP gracza, uzywany tylko w komendzie '/kcaptcha info'
 #   {COMMAND}  -> Zmieniany tylko wtedy, gdy ktos niepoprawnie uzyje komendy '/kcaptcha'
 
+# NIE ZMIENIAJ TEGO NUMERU !!!
+messagesVersion: 2
+
 ##########################
 #  WIADOMOSCI NA CZACIE  #
 ##########################
@@ -78,3 +81,15 @@ msgFeatureNotEnabled:
 
 barYouHaveToCompleteCaptcha: '&6&lWpisz na czacie kod &7&l{CAPTCHA} &6&laby moc pisac!'
 barCaptchaComplete: '&6&lKonto zweryfikowane, mozesz juz uzywac komend i czatu!'
+
+##################
+# TITLE MESSAGES #
+##################
+
+# Ponizsze wiadomosci sa wyswietlane jako tytul/podtytul
+# Ponizsza opcja dziala tylko od wersji 1.8 w gore
+
+titleYouHaveToCompleteCaptcha: '&6&lWpisz &7&l{CAPTCHA} &6&lna czacie'
+titleCaptchaComplete: '&6&lKonto zweryfikowane!'
+subtitleYouHaveToCompleteCaptcha: '&6&laby moc uzywac czatu/komend'
+subtitleCaptchaComplete: '&6&lMozesz od teraz uzywac czatu/komend!'

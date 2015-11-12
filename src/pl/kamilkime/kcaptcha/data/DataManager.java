@@ -29,7 +29,7 @@ public class DataManager {
 	
 	public void checkFiles(){
 		if(!mainDir.exists()) mainDir.mkdir();
-		if(!cfgFile.exists()) Main.getInst().saveDefaultConfig();
+		if(!cfgFile.exists()) Main.getInst().saveResource("config.yml", true);
 		if(!dataFile.exists()){
 			try {
 				dataFile.createNewFile();
@@ -44,6 +44,18 @@ public class DataManager {
 	public void load(){
 		configContents = ConfigLoader.load();
 		messages = MessagesLoader.load((String) configContents.get("lang"), mainDir);
+		
+		if(!configContents.containsKey("configVersion") || !((int) configContents.get("configVersion") == 2)){
+			Main.getInst().saveResource("config.yml", true);
+			configContents = ConfigLoader.load();
+		}
+		
+		if(!messages.containsKey("messagesVersion") || !((int) messages.get("messagesVersion") == 2)){
+			Main.getInst().saveResource("messages_en.yml", true);
+			Main.getInst().saveResource("messages_pl.yml", true);
+			messages = MessagesLoader.load("en", mainDir);
+		}
+		
 		if((boolean) configContents.get("rememberUUIDs")) VerificationDataManager.load(mainDir);
 	}
 	

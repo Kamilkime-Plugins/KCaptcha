@@ -60,7 +60,7 @@ public class VerificationUtils {
 		int length = (int) d.getConfigContent("captchaLength");
 		String captcha = "";
 		for(int i=0; i<length; i++){
-			int pos = r.nextInt(length);
+			int pos = r.nextInt(alphanumbers.length);
 			int big = r.nextInt(2);
 			captcha += (big == 1 ? String.valueOf(alphanumbers[pos]).toUpperCase() : alphanumbers[pos]);
 		}

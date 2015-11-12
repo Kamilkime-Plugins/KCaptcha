@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import pl.kamilkime.kcaptcha.data.DataManager;
 import pl.kamilkime.kcaptcha.objects.VerifiedUser;
 import pl.kamilkime.kcaptcha.objects.utils.VerificationUtils;
+import pl.kamilkime.kcaptcha.title.TitleUtils;
 
 public class PlayerCommandPreprocessListener implements Listener {
 	
@@ -49,7 +50,20 @@ public class PlayerCommandPreprocessListener implements Listener {
 			}
 			
 			if(((boolean) d.getConfigContent("enableBarMessage"))){
+				BarAPI.removeBar(p);
 				BarAPI.setMessage(p, d.getBarMessage("barCaptchaComplete", captcha), (int) d.getConfigContent("bossBarTime"));
+			}
+			
+			if(TitleUtils.canUseTitles()){
+				if(((boolean) d.getConfigContent("enableTitle"))){
+					TitleUtils.sendTitlePacket(p, TitleUtils.createTitlePacket(captcha, "TITLE", (String) d.getPlainMessage("titleCaptchaComplete"),
+							((int) d.getConfigContent("titleFadeIn"))*20, ((int) d.getConfigContent("titleStay"))*20, ((int) d.getConfigContent("titleFadeOut"))*20));
+				}
+				
+				if(((boolean) d.getConfigContent("enableSubtitle"))){
+					TitleUtils.sendTitlePacket(p, TitleUtils.createTitlePacket(captcha, "SUBTITLE", (String) d.getPlainMessage("subtitleCaptchaComplete"),
+							((int) d.getConfigContent("subtitleFadeIn"))*20, ((int) d.getConfigContent("subtitleStay"))*20, ((int) d.getConfigContent("subtitleFadeOut"))));
+				}
 			}
 		} 
 // CAPTCHA incorrect =================================================================================================================================================
@@ -62,7 +76,20 @@ public class PlayerCommandPreprocessListener implements Listener {
 			}
 			
 			if(((boolean) d.getConfigContent("enableBarMessage"))){
+				BarAPI.removeBar(p);
 				BarAPI.setMessage(p, d.getBarMessage("barYouHaveToCompleteCaptcha", captcha), (int) d.getConfigContent("bossBarTime"));
+			}
+			
+			if(TitleUtils.canUseTitles()){
+				if(((boolean) d.getConfigContent("enableTitle"))){
+					TitleUtils.sendTitlePacket(p, TitleUtils.createTitlePacket(captcha, "TITLE", (String) d.getPlainMessage("titleYouHaveToCompleteCaptcha"),
+							((int) d.getConfigContent("titleFadeIn"))*20, ((int) d.getConfigContent("titleStay"))*20, ((int) d.getConfigContent("titleFadeOut"))*20));
+				}
+				
+				if(((boolean) d.getConfigContent("enableSubtitle"))){
+					TitleUtils.sendTitlePacket(p, TitleUtils.createTitlePacket(captcha, "SUBTITLE", (String) d.getPlainMessage("subtitleYouHaveToCompleteCaptcha"),
+							((int) d.getConfigContent("subtitleFadeIn"))*20, ((int) d.getConfigContent("subtitleStay"))*20, ((int) d.getConfigContent("subtitleFadeOut"))));
+				}
 			}
 		}
 		

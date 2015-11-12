@@ -11,6 +11,9 @@
 #   {IP}  -> Player IP address, used only in '/kcaptcha info' command
 #   {COMMAND}  -> Used only when user issues '/kcaptcha' command incorrectly
 
+# DO NOT CHANGE THIS NUMBER !!!
+messagesVersion: 2
+
 ###################
 #  CHAT MESSAGES  #
 ###################
@@ -77,3 +80,15 @@ msgFeatureNotEnabled:
 
 barYouHaveToCompleteCaptcha: '&6&lType &7&l{CAPTCHA} &6&lon chat to prove you are a human!'
 barCaptchaComplete: '&6&lAccount validated, you can now use chat and commands!'
+
+##################
+# TITLE MESSAGES #
+##################
+
+# These messages are shown as a title/subtitle
+# This option works only for version 1.8 and higher
+
+titleYouHaveToCompleteCaptcha: '&6&lType &7&l{CAPTCHA} &6&lon chat'
+titleCaptchaComplete: '&6&lAccount validated!'
+subtitleYouHaveToCompleteCaptcha: '&6&lto prove you are a human'
+subtitleCaptchaComplete: '&6&lYou can now use chat and commands'

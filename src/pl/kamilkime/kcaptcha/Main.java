@@ -12,6 +12,7 @@ import pl.kamilkime.kcaptcha.listeners.AsyncPlayerChatListener;
 import pl.kamilkime.kcaptcha.listeners.PlayerCommandPreprocessListener;
 import pl.kamilkime.kcaptcha.listeners.PlayerLoginListener;
 import pl.kamilkime.kcaptcha.objects.utils.VerificationUtils;
+import pl.kamilkime.kcaptcha.title.TitleUtils;
 
 public class Main extends JavaPlugin {
 
@@ -29,6 +30,8 @@ public class Main extends JavaPlugin {
 		
 		bar = new BarAPI();
 		bar.onEnable();
+		
+		if(TitleUtils.canUse18()) TitleUtils.load();
 		
 		Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);
 		Bukkit.getPluginManager().registerEvents(new PlayerLoginListener(), this);

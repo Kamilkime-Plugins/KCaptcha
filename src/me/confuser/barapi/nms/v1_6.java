@@ -172,7 +172,7 @@ public class v1_6 extends FakeDragon {
 			Method a = Util.getMethod(watcher_class, "a", new Class<?>[] { int.class, Object.class });
 			a.setAccessible(true);
 
-			a.invoke(watcher, 0, isVisible() ? (byte) 0 : (byte) 0x20);
+			a.invoke(watcher, 0, (byte) 0x20);
 			a.invoke(watcher, 6, (Float) (float) health);
 			a.invoke(watcher, 7, (Integer) (int) 0);
 			a.invoke(watcher, 8, (Byte) (byte) 0);
