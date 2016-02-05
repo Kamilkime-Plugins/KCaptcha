@@ -1,4 +1,4 @@
-package pl.kamilkime.kcaptcha.listeners;
+package com.gmail.kamilkime.kcaptcha.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -6,18 +6,17 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
-import pl.kamilkime.kcaptcha.data.DataManager;
-import pl.kamilkime.kcaptcha.objects.utils.VerificationUtils;
+import com.gmail.kamilkime.kcaptcha.data.Settings;
+import com.gmail.kamilkime.kcaptcha.objects.utils.VerificationUtils;
 
 public class PlayerLoginListener implements Listener{
 		
-	private DataManager d = DataManager.getInst();
+	private Settings set = Settings.getInst();
 	
 	@EventHandler(priority=EventPriority.MONITOR)
 	public void onLogin(PlayerLoginEvent e){
 		Player p = e.getPlayer();
-		
-		if(p.hasPermission((String) d.getConfigContent("bypassPermission"))) return;
+		if(p.hasPermission(set.bypassPermission)) return;
 		if(VerificationUtils.isValidated(p)) return;
 		VerificationUtils.addNonValidated(p.getUniqueId(), VerificationUtils.generateCaptcha());
 	}

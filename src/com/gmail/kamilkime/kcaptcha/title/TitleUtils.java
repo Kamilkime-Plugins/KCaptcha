@@ -1,44 +1,45 @@
-package pl.kamilkime.kcaptcha.title;
+package com.gmail.kamilkime.kcaptcha.title;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import com.gmail.kamilkime.kcaptcha.data.FileUtils;
+import com.gmail.kamilkime.kcaptcha.data.StringUtils;
+
 public class TitleUtils {
 
+	private static boolean isEnabled;
 	private static Method getHandle;
 	private static Method sendPacket;
 	private static Method valueOf;
 	private static Method a;
 	private static Constructor<?> titleConstructor;
-	private static Class<?> titleActionClass;
-	private static Class<?> chatComp;
-	private static Class<?> titleClass;
-	private static Field pConnection;
-	private static boolean isEnabled;
+	private static Class<?> enumTitleAction;
+	private static Field playerConnection;
 	private static String versionString;
 	private static String versionEnding;
 	
 	public static void load(){
 		try{
-			chatComp = getNmsClass("IChatBaseComponent");
-			titleActionClass = (versionEnding.equals("R1") ? getNmsClass("EnumTitleAction") : getNmsClass("PacketPlayOutTitle$EnumTitleAction"));
-			titleClass = getNmsClass("PacketPlayOutTitle");
-			valueOf = titleActionClass.getMethod("valueOf", String.class);
+			enumTitleAction = (versionEnding.equals("R1") ? getNmsClass("EnumTitleAction") : getNmsClass("PacketPlayOutTitle$EnumTitleAction"));
+			valueOf = enumTitleAction.getMethod("valueOf", String.class);
 			getHandle = Class.forName("org.bukkit.craftbukkit." + versionString + "entity.CraftPlayer").getMethod("getHandle");
-			titleConstructor = titleClass.getConstructor(titleActionClass, chatComp, int.class, int.class, int.class);
+			titleConstructor = getNmsClass("PacketPlayOutTitle").getConstructor(enumTitleAction, getNmsClass("IChatBaseComponent"), int.class, int.class, int.class);
 			
 			Class<?> serializer = (versionEnding.equals("R1") ? getNmsClass("ChatSerializer") : getNmsClass("IChatBaseComponent$ChatSerializer"));
 			a = serializer.getDeclaredMethod("a", String.class);
 			
 			Class<?> entityPlayer = getNmsClass("EntityPlayer");
-			pConnection = entityPlayer.getField("playerConnection");
+			playerConnection = entityPlayer.getField("playerConnection");
 			sendPacket = getNmsClass("PlayerConnection").getMethod("sendPacket", getNmsClass("Packet"));
-		} catch(Exception e){
+		} catch(ClassNotFoundException | NoSuchFieldException | SecurityException | NoSuchMethodException e){
 			e.printStackTrace();
 		}
 	}
@@ -69,24 +70,32 @@ public class TitleUtils {
 	public static void sendTitlePacket(Player toSend, Object packet){
 		try{
 			Object entityPlayer = getHandle.invoke(toSend);
-			Object playerConnection = pConnection.get(entityPlayer);
-			sendPacket.invoke(playerConnection, packet);
+			Object pConnection = playerConnection.get(entityPlayer);
+			sendPacket.invoke(pConnection, packet);
 			
-		} catch(Exception e){
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&l[KCaptcha] &4&lCannot send title packet! Tell developer about this problem!"));
-			e.printStackTrace();
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&l[KCaptcha] &4&lCannot send title packet! Tell developer about this problem!"));
+		} catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException e){
+			try {
+				Bukkit.getConsoleSender().sendMessage(StringUtils.color("&7&l[KCaptcha] &c&lCannot send title packet! Error log was saved to &7&lerrorLogs &c&lfolder in the "
+						+ "plugin folder as &7&l" + FileUtils.createErrorLog(e.getStackTrace()) + " &c&lfile!"));
+				Bukkit.getConsoleSender().sendMessage(StringUtils.color("&7&l[KCaptcha] &c&lSend this file to plugin developer via &7&lspigotmc.org &c&las fast as possible!"));
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 	
 	public static Object createTitlePacket(String captcha, String type, String text, int fadeIn, int stay, int fadeOut){
 		try{
-			Object titleType = valueOf.invoke(titleActionClass, type.toUpperCase());
+			Object titleType = valueOf.invoke(enumTitleAction, type.toUpperCase());
 			return titleConstructor.newInstance(titleType, titleStringToJSON(text, captcha), fadeIn, stay, fadeOut);
-		} catch(Exception e){
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&l[KCaptcha] &4&lCannot create title packet! Tell developer about this problem!"));
-			e.printStackTrace();
-			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&l[KCaptcha] &4&lCannot create title packet! Tell developer about this problem!"));
+		} catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException | InstantiationException e){
+			try {
+				Bukkit.getConsoleSender().sendMessage(StringUtils.color("&7&l[KCaptcha] &c&lCannot create title packet! Error log was saved to &7&lerrorLogs &c&lfolder in the "
+						+ "plugin folder as &7&l" + FileUtils.createErrorLog(e.getStackTrace()) + " &c&lfile!"));
+				Bukkit.getConsoleSender().sendMessage(StringUtils.color("&7&l[KCaptcha] &c&lSend this file to plugin developer via &7&lspigotmc.org &c&las fast as possible!"));
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 		return null;
 	}
@@ -96,7 +105,7 @@ public class TitleUtils {
 			String toJSON = "{\"text\":\"" + ChatColor.translateAlternateColorCodes('&', text).replace("{CAPTCHA}", captcha).replace("{CODE}", captcha) + "\"}";
 			Object returned = a.invoke(null, toJSON);
 			return returned;
-		} catch(Exception e){
+		}  catch(IllegalArgumentException | InvocationTargetException | IllegalAccessException e){
 			e.printStackTrace();
 		}
 		return null;

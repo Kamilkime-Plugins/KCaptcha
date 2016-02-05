@@ -4,12 +4,12 @@
 # so no one has to add a BarAPI plugin to their server.
 
 name: KCaptcha
-main: pl.kamilkime.kcaptcha.Main
-version: 1.2
+main: com.gmail.kamilkime.kcaptcha.Main
+version: 1.4
 author: Kamilkime
-website: http://youtube.pl/kamilkime
+website: https://www.spigotmc.org/resources/authors/kamilkime.52851/
 
 commands:
   kcaptcha:
     description: "Main KCaptcha plugin command"
-    aliases: [captcha, kcode, code, ksecure, kantibot]
+    aliases: [captcha, kcode, code]

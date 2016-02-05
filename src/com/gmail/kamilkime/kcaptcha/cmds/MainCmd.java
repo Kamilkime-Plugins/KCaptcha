@@ -1,4 +1,4 @@
-package pl.kamilkime.kcaptcha.cmds;
+package com.gmail.kamilkime.kcaptcha.cmds;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-import pl.kamilkime.kcaptcha.Main;
+import com.gmail.kamilkime.kcaptcha.Main;
 
 /**
  * Allows plugins to safely set a health bar message.

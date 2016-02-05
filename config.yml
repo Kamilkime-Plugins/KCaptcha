@@ -3,7 +3,7 @@
 #####################
 
 # DO NOT CHANGE THIS NUMBER !!!
-configVersion: 2
+configVersion: 3
 
 # Do you want to remember verified player UUIDs?
 # If this option is enabled every player has to complete CAPTCHA only once
@@ -26,20 +26,10 @@ reloadPermission: "kcaptcha.reload"
 infoPermission: "kcaptcha.info"
 
 # What commands is a player able to use before CAPTCHA checking?
-# All commands MUST be listed in a lower case form (only small letters, no capitals)!
 cmdsBeforeCaptcha:
 - 'login'
 - 'register'
 - 'helpop'
-
-######################
-#  MESSAGE SETTINGS  #
-######################
-
-# What language do you want your messages to be in?
-# By default the only available languages are Polish (pl) and English (en)
-# You can add your own language option, just see a tutorial on the spigot plugin web site
-lang: en
 
 # Do you want to send a chat message with the CAPTCHA?
 enableChatMessage: true

@@ -1,30 +1,34 @@
-package pl.kamilkime.kcaptcha;
+package com.gmail.kamilkime.kcaptcha;
 
 import me.confuser.barapi.BarAPI;
+
+import java.text.SimpleDateFormat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import pl.kamilkime.kcaptcha.cmds.MainCmd;
-import pl.kamilkime.kcaptcha.data.DataManager;
-import pl.kamilkime.kcaptcha.listeners.AsyncPlayerChatListener;
-import pl.kamilkime.kcaptcha.listeners.PlayerCommandPreprocessListener;
-import pl.kamilkime.kcaptcha.listeners.PlayerLoginListener;
-import pl.kamilkime.kcaptcha.objects.utils.VerificationUtils;
-import pl.kamilkime.kcaptcha.title.TitleUtils;
+import com.gmail.kamilkime.kcaptcha.cmds.MainCmd;
+import com.gmail.kamilkime.kcaptcha.data.Settings;
+import com.gmail.kamilkime.kcaptcha.listeners.AsyncPlayerChatListener;
+import com.gmail.kamilkime.kcaptcha.listeners.PlayerCommandPreprocessListener;
+import com.gmail.kamilkime.kcaptcha.listeners.PlayerLoginListener;
+import com.gmail.kamilkime.kcaptcha.objects.utils.VerificationUtils;
+import com.gmail.kamilkime.kcaptcha.title.TitleUtils;
 
 public class Main extends JavaPlugin {
 
+	public static final SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss z");
+	public static final SimpleDateFormat oldSDF = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss z");
 	private static Main inst;
-	private DataManager d;
+	private Settings d;
 	private BarAPI bar;
 
 	@Override
 	public void onEnable() {
 		inst = this;
 		
-		d = DataManager.getInst();
+		d = Settings.getInst();
 		d.checkFiles();
 		d.load();
 		
@@ -57,7 +61,7 @@ public class Main extends JavaPlugin {
 	private void checkPlayers() {
 		for (Player p : Bukkit.getOnlinePlayers()) {
 			if (VerificationUtils.isValidated(p)) continue;
-			if (p.hasPermission((String) d.getConfigContent("bypassPermission"))) continue;
+			if (p.hasPermission(Settings.getInst().bypassPermission)) continue;
 			VerificationUtils.addNonValidated(p.getUniqueId(), VerificationUtils.generateCaptcha());
 		}
 	}

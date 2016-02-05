@@ -1,11 +1,11 @@
-package pl.kamilkime.kcaptcha.objects;
+package com.gmail.kamilkime.kcaptcha.objects;
 
 import java.util.Date;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
 
-import pl.kamilkime.kcaptcha.objects.utils.VerificationUtils;
+import com.gmail.kamilkime.kcaptcha.objects.utils.VerificationUtils;
 
 /*
  * This class is used ONLY if uuid remembering is enabled
