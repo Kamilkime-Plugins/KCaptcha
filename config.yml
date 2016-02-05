@@ -3,12 +3,16 @@
 #####################
 
 # DO NOT CHANGE THIS NUMBER !!!
-configVersion: 3
+configVersion: 4
 
 # Do you want to remember verified player UUIDs?
 # If this option is enabled every player has to complete CAPTCHA only once
 # Otherwise - they have to complete CAPTCHA every time they join the server
 rememberUUIDs: true
+
+# Every x days player will have to re-enter the CAPTCHA, if he is already validated
+# This works only if rememberUUIDs is enabled
+forceRevalidationEvery: 7
 
 # How long do you want a CAPTCHA code to be?
 captchaLength: 7

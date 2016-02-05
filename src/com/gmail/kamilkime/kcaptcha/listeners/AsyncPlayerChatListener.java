@@ -29,7 +29,11 @@ public class AsyncPlayerChatListener implements Listener {
 // CAPTCHA correct =================================================================================================================================================
 		if(captcha.equals(e.getMessage())){
 			VerificationUtils.removeNonValidated(p.getUniqueId());
-			VerifiedUser.createUser(p.getUniqueId(), p.getName(), p.getAddress().getAddress().toString().replace("/", ""), new Date());
+			if(VerifiedUser.get(e.getPlayer()) == null){
+				VerifiedUser.createUser(p.getUniqueId(), p.getName(), p.getAddress().getAddress().toString().replace("/", ""), new Date());
+			} else {
+				VerifiedUser.get(e.getPlayer()).setDate(new Date());
+			}
 			if(set.enableChatMessage){
 				for(String m : StringUtils.createChatMessage(set.msgCaptchaComplete, captcha)) p.sendMessage(m);
 				anythingSent = true;

@@ -19,54 +19,54 @@ messagesVersion: 2
 ###################
 
 msgYouHaveToCompleteCaptcha:
-- ''
-- '    &8--------------------'
-- ' &6Type &7{CAPTCHA} &6on chat to prove'
-- ' &6you are a human, not a bot!'
-- '    &8--------------------'
-- ''
+- ""
+- "    &8--------------------"
+- " &6Type &7{CAPTCHA} &6on chat to prove"
+- " &6you are a human, not a bot!"
+- "    &8--------------------"
+- ""
 
 msgCaptchaComplete:
-- ''
-- '    &8------------------'
-- ' &6Your account has been validated!'
-- ' &6You can now use chat and commands!'
-- '    &8------------------'
-- ''
+- ""
+- "    &8------------------"
+- " &6Your account has been validated!"
+- " &6You can now use chat and commands!"
+- "    &8------------------"
+- ""
 
 msgReloadCommand:
-- '&7&l[KCaptcha] &6Config and messages reloaded!'
+- "&7&l[KCaptcha] &6Config and messages reloaded!"
 
 msgInfoCommand:
-- ''
-- '    &8------------------------------------'
-- ' &6Name&8: &7{NAME}'
-- ' &6UUID&8: &7{UUID}'
-- ' &6IP Address&8: &7{IP}'
-- ' &6Verification date: &7{DATE}'
-- '    &8------------------------------------'
-- ''
+- ""
+- "    &8------------------------------------"
+- " &6Name&8: &7{NAME}"
+- " &6UUID&8: &7{UUID}"
+- " &6IP Address&8: &7{IP}"
+- " &6Verification date: &7{DATE}"
+- "    &8------------------------------------"
+- ""
 
 msgHelpCommand:
-- ''
-- '    &8----------------------'
-- ' &6/kcaptcha help &8- &7shows this info'
-- ' &6/kcaptcha info <nick> &8- &7shows info about a verified player'
-- ' &6/kcaptcha reload &8- &7reloads config and messages'
-- '    &8----------------------'
-- ''
+- ""
+- "    &8----------------------"
+- " &6/kcaptcha help &8- &7shows this info"
+- " &6/kcaptcha info <nick> &8- &7shows info about a verified player"
+- " &6/kcaptcha reload &8- &7reloads config and messages"
+- "    &8----------------------"
+- ""
 
 msgNoPermission:
-- '&cYou dont have permission to do this!'
+- "&cYou dont have permission to do this!"
 
 msgNoSuchPlayer:
-- '&cThere is no verified player with that name!'
+- "&cThere is no verified player with that name!"
 
 msgWrongSyntax:
-- '&cCorrect usage: {COMMAND}'
+- "&cCorrect usage: {COMMAND}"
 
 msgFeatureNotEnabled:
-- '&cThis feature is not enabled!'
+- "&cThis feature is not enabled!"
 
 ##################
 #  BAR MESSAGES  #
@@ -78,8 +78,8 @@ msgFeatureNotEnabled:
 # Remember to check how long will be the CAPTCHA code!
 # Reminder: CAPTCHA length is set in the config file
 
-barYouHaveToCompleteCaptcha: '&6&lType &7&l{CAPTCHA} &6&lon chat to prove you are a human!'
-barCaptchaComplete: '&6&lAccount validated, you can now use chat and commands!'
+barYouHaveToCompleteCaptcha: "&6&lType &7&l{CAPTCHA} &6&lon chat to prove you are a human!"
+barCaptchaComplete: "&6&lAccount validated, you can now use chat and commands!"
 
 ##################
 # TITLE MESSAGES #
@@ -88,7 +88,7 @@ barCaptchaComplete: '&6&lAccount validated, you can now use chat and commands!'
 # These messages are shown as a title/subtitle
 # This option works only for version 1.8 and higher
 
-titleYouHaveToCompleteCaptcha: '&6&lType &7&l{CAPTCHA} &6&lon chat'
-titleCaptchaComplete: '&6&lAccount validated!'
-subtitleYouHaveToCompleteCaptcha: '&6&lto prove you are a human'
-subtitleCaptchaComplete: '&6&lYou can now use chat and commands'
+titleYouHaveToCompleteCaptcha: "&6&lType &7&l{CAPTCHA} &6&lon chat"
+titleCaptchaComplete: "&6&lAccount validated!"
+subtitleYouHaveToCompleteCaptcha: "&6&lto prove you are a human"
+subtitleCaptchaComplete: "&6&lYou can now use chat and commands"

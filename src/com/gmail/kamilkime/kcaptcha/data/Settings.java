@@ -24,6 +24,7 @@ public class Settings {
 	public boolean enableBarMessage;
 	public boolean enableTitle;
 	public boolean enableSubtitle;
+	public int forceRevalidationEvery;
 	public int captchaLength;
 	public int bossBarTime;
 	public int titleFadeIn;
@@ -82,6 +83,7 @@ public class Settings {
 		enableBarMessage = Main.getInst().getConfig().getBoolean("enableBarMessage");
 		enableTitle = Main.getInst().getConfig().getBoolean("enableTitle");
 		enableSubtitle = Main.getInst().getConfig().getBoolean("enableSubtitle");
+		forceRevalidationEvery = Main.getInst().getConfig().getInt("forceRevalidationEvery");
 		captchaLength = Main.getInst().getConfig().getInt("captchaLength");
 		bossBarTime = Main.getInst().getConfig().getInt("bossBarTime");
 		titleFadeIn = Main.getInst().getConfig().getInt("titleFadeIn");
@@ -93,7 +95,7 @@ public class Settings {
 		bypassPermission = Main.getInst().getConfig().getString("bypassPermission");
 		reloadPermission = Main.getInst().getConfig().getString("reloadPermission");
 		infoPermission = Main.getInst().getConfig().getString("infoPermission");
-		cmdsBeforeCaptcha = StringUtils.lowerCase(Main.getInst().getConfig().getStringList("cmdsBeforeCaptcha"));
+		cmdsBeforeCaptcha = StringUtils.toCommands(Main.getInst().getConfig().getStringList("cmdsBeforeCaptcha"));
 		
 		FileUtils.checkMessages();
 		YamlConfiguration mYml = YamlConfiguration.loadConfiguration(msgFile);

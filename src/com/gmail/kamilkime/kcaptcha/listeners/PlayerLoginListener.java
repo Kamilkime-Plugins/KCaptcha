@@ -17,7 +17,7 @@ public class PlayerLoginListener implements Listener{
 	public void onLogin(PlayerLoginEvent e){
 		Player p = e.getPlayer();
 		if(p.hasPermission(set.bypassPermission)) return;
-		if(VerificationUtils.isValidated(p)) return;
+		if(VerificationUtils.isValidated(p) && !VerificationUtils.needsRevalidation(p)) return;
 		VerificationUtils.addNonValidated(p.getUniqueId(), VerificationUtils.generateCaptcha());
 	}
 }

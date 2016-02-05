@@ -1,6 +1,7 @@
 package com.gmail.kamilkime.kcaptcha.objects.utils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -64,5 +65,13 @@ public class VerificationUtils {
 			captcha += (r.nextInt(2) == 1 ? String.valueOf(alphanumbers[pos]).toUpperCase() : alphanumbers[pos]);
 		}
 		return captcha;
+	}
+	
+	public static boolean needsRevalidation(Player p){
+		VerifiedUser u = VerifiedUser.get(p);
+		Calendar when = Calendar.getInstance();
+		when.setTime(u.getDate());
+		when.add(Calendar.HOUR_OF_DAY, set.forceRevalidationEvery);
+		return when.before(Calendar.getInstance());
 	}
 }
