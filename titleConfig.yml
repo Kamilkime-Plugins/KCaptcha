@@ -1,0 +1,54 @@
+##################
+# TITLE SETTINGS #
+##################
+
+# Config version, do not change this section
+# Every config file has its own version, so it may differ across the files
+configVersion: 1
+
+# Do you want to enable KTitle?
+# If you do not enable it - KCaptcha will not send any messages as title/subtitle/actionBar
+# Reminder - KTitle will work only on MC version 1.8 and up
+enableKTitle: true
+
+# Functions are locations, where the text will be shown by KTitle
+# If function is not enabled - messages connected with it will be ignored
+# Available functions: ACTIONBAR, SUBTITLE, TITLE
+enabledFunctions:
+- 'ACTIONBAR'
+- 'SUBTITLE'
+- 'TITLE'
+
+# Fade properties for title/subtitle and on MC version 1.11 for actionBar
+# These values are (in order) - fade in time, stay time, fade out time
+# Time should be given in seconds
+fadeProperties:
+- 1
+- 3
+- 1
+
+##################
+# TITLE MESSAGES #
+##################
+
+# All messages support '&' color codes (e.g. &4 for dark red)
+# Available message variables:
+#   {CAPTCHA} or {CODE}  ->  changed to a CAPTCHA code player has to write
+
+# Title message shown when the player has to enter the CAPTCHA code
+titleMessageCompleteCaptcha: "&6&lType &7&l{CODE} &6&lon chat"
+
+# Title message shown when the player has successfully entered the CAPTCHA code
+titleMessageCaptchaCompleted: "&6&lAccount validated!"
+
+# Subtitle message shown when the player has to enter the CAPTCHA code
+subtitleMessageCompleteCaptcha: "&6&lto prove you are a human"
+
+# Subtitle message shown when the player has successfully entered the CAPTCHA code
+subtitleMessageCaptchaCompleted: "&6&lYou can now use chat and commands"
+
+# ActionBar message shown when the player has to enter the CAPTCHA code
+actionbarMessageCompleteCaptcha: "&cYou need to prove you are a human!"
+
+# ActionBar message shown when the player has successfully entered the CAPTCHA code
+actionbarMessageCaptchaCompleted: "&cGreat! Welcome human!"

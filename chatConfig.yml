@@ -1,0 +1,38 @@
+#################
+# CHAT SETTINGS #
+#################
+
+# Config version, do not change this section
+# Every config file has its own version, so it may differ across the files
+configVersion: 1
+
+# Do you want to show KCaptcha messages on chat?
+# If you do not enable this - remember to enable bossBar/title messages, or nothing will be shown!
+enableChatMessage: true
+
+#################
+# CHAT MESSAGES #
+#################
+
+# All messages written below are lists of text. One line in the list = one line displayed in chat
+# All messages support '&' color codes (e.g. &4 for dark red)
+# Available message variables:
+#   {CAPTCHA} or {CODE}  ->  changed to a CAPTCHA code player has to write
+
+# Chat message shown when the player has to enter the CAPTCHA code
+chatMessageCompleteCaptcha:
+- ""
+- "    &8--------------------"
+- " &6Type &7{CODE} &6on chat to prove"
+- " &6you are a human, not a bot!"
+- "    &8--------------------"
+- ""
+
+# Chat message shown when the player has successfully entered the CAPTCHA code
+chatMessageCaptchaCompleted:
+- ""
+- "    &8------------------"
+- " &6Your account has been validated!"
+- " &6You can now use chat and commands!"
+- "    &8------------------"
+- ""

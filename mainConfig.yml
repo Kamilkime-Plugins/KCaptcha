@@ -1,0 +1,103 @@
+#################
+# MAIN SETTINGS #
+#################
+
+# Config version, do not change this section
+# Every config file has its own version, so it may differ across the files
+configVersion: 1
+
+# How frequent (in seconds) should the auto save be?
+# Auto save cannot be disabled, but it is only used when 'rememberUUIDs' is enabled
+autoSaveInterval: 300
+
+# Do you want to remember validated players?
+# If not - players have to enter CAPTCHA every time they join the server
+rememberUUIDs: true
+
+# Players will be required to re-enter the CAPTCHA code every x days
+# This feature works only if 'rememberUUIDs' is enabled
+forceRevalidationEvery: 7
+
+# How long should the CAPTCHA code be?
+captchaLength: 7
+
+# Date format, used when showing verification date
+# Pattern letters used in Java can be found here: http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html
+dateFormat: "dd/MM/yyyy HH:mm:ss zz"
+
+# Commands which should be allowed to be used before CAPTCHA verification
+# Commands in this file should be written all lowercase!
+cmdsBeforeCaptcha:
+- 'login'
+- 'register'
+- 'helpop'
+
+# Actions which should be blocked before CAPTCHA verification
+# If the 'COMMAND' action is blocked - it still ignores commands given in 'cmdsBeforeCaptcha' list
+# Available actions: CHAT, COMMAND
+blockedActions:
+- 'CHAT'
+- 'COMMAND'
+
+#################
+# MAIN MESSAGES #
+#################
+
+# All messages written below are lists of text. One line in the list = one line displayed in chat
+# All messages support '&' color codes (e.g. &4 for dark red)
+# Available message variables:
+#   {DATE}  -> Player verification date, used only in '/kcaptcha info' command
+#   {EXPIRATION}  -> Player verification expiration date, used only in '/kcaptcha info' command
+#   {UUID}  -> Player UUID, used only in '/kcaptcha info' command
+#   {NAME}  -> Player name, used in '/kcaptcha info' and '/kcaptcha force' command
+#   {IP}  -> Player IP address, used only in '/kcaptcha info' command
+#   {COMMAND}  -> Used only when user issues '/kcaptcha' command incorrectly
+
+# Chat message shown after using '/kcaptcha info' command
+mainMessageInfoCommand:
+- ""
+- "    &8------------------------------------"
+- " &6UUID&8: &7{UUID}"
+- " &6Name&8: &7{NAME}"
+- " &6IP Address&8: &7{IP}"
+- " &6Verification date: &7{DATE}"
+- " &6Expiration date: &7{EXPIRATION}"
+- "    &8------------------------------------"
+- ""
+
+# Chat message shown after using '/kcaptcha help' command
+mainMessageHelpCommand:
+- ""
+- "    &8----------------------"
+- " &6/kcaptcha help &8- &7shows this info"
+- " &6/kcaptcha version &8- &7shows plugin version"
+- " &6/kcaptcha reload &8- &7reloads config and messages"
+- " &6/kcaptcha info <nick> &8- &7shows info about a verified player"
+- " &6/kcaptcha force <nick> &8- &7forces verification for a given player"
+- "    &8----------------------"
+- ""
+
+# Chat message shown after using '/kcaptcha force' command
+mainMessageForceCommand:
+- "&7&l[KCaptcha] &6All data about player &7{NAME} &6has been deleted!"
+- "&7&l[KCaptcha] &6Player &7{NAME} &6will be verified when they relog or the server reloads/restarts"
+
+# Chat message shown after using '/kcaptcha reload' command
+mainMessageReloadCommand:
+- "&7&l[KCaptcha] &6Config and messages reloaded!"
+
+# Chat message shown when someone uses '/kcaptcha' command without having appropriate permission
+mainMessageNoPermission:
+- "&cYou don't have permission to do this!"
+
+# Chat message shown when '/kcaptcha info' command does not find data for a given player
+mainMessageNoSuchPlayer:
+- "&cThere is no verified player with that name!"
+
+# Chat message shown after using the '/kcaptcha' command wrongly
+mainMessageWrongSyntax:
+- "&cCorrect usage: {COMMAND}"
+
+# Chat message sent when someone tries to use a disabled KCaptcha feature
+mainMessageFeatureNotEnabled:
+- "&cThis feature is not enabled!"

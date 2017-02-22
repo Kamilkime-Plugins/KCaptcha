@@ -1,0 +1,20 @@
+name: KCaptcha
+main: io.github.kamilkime.kcaptcha.Main
+version: 1.5
+author: Kamilkime
+website: https://www.spigotmc.org/resources/authors/kamilkime.52851/
+softdepend: [ProtocolLib]
+
+commands:
+  kcaptcha:
+    description: "Main KCaptcha plugin command"
+    aliases: [captcha, kcode, code]
+
+permissions:
+  kcaptcha.*:
+    default: op
+    children:
+      kcaptcha.info: true
+      kcaptcha.force: true
+      kcaptcha.bypass: true
+      kcaptcha.reload: true

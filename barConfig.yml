@@ -1,0 +1,51 @@
+#####################
+# BOSS BAR SETTINGS #
+#####################
+
+# Config version, do not change this section
+# Every config file has its own version, so it may differ across the files
+configVersion: 1
+
+# Do you want to enable KBossBar?
+# If you do not enable it - KCaptcha will not send any messages using the boss bar
+enableKBossBar: true
+
+# Type of the boss used by KBossBar
+# Available types: DRAGON, WITHER
+bossType: WITHER
+
+# How full should the boss bar be (in percent) after sending to the player
+barStartPercent: 100
+
+# How long should the bar be displayed to the player (time given in seconds)
+barDisplayTime: 10
+
+# Should the boss bar be slowly shortened to 0% while being displayed?
+barShorten: true
+
+# What color should the boss bar be? This feature works only for MC version 1.9 and up
+# Available colors: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
+barColor: WHITE
+
+# What style should the boss bar be? This feature works only for MC version 1.9 and up
+# Boss bar can be solid ('normal' looking) or segmented (with black lines dividing the bar into segments)
+# Available styles: SOLID, SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20
+barStyle: SOLID
+
+#####################
+# BOSS BAR MESSAGES #
+#####################
+
+# All messages must have 1-64 characters, all longer strings will be trimmed to 64 characters
+# Remember to check how long will the CAPTCHA code be!
+# Reminder: CAPTCHA length is set in the mainConfig.yml file
+
+# All messages support '&' color codes (e.g. &4 for dark red)
+# Available message variables:
+#   {CAPTCHA} or {CODE}  ->  changed to a CAPTCHA code player has to write
+
+# Message shown when the player has to enter the CAPTCHA code
+barMessageCompleteCaptcha: "&6&lType &7&l{CODE} &6&lon chat to prove you are a human!"
+
+# Message shown when the player has successfully entered the CAPTCHA code
+barMessageCaptchaCompleted: "&6&lAccount validated, you can now use chat and commands!"
