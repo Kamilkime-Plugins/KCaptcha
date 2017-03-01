@@ -1,6 +1,6 @@
 name: KCaptcha
 main: io.github.kamilkime.kcaptcha.Main
-version: 1.5
+version: 1.5.1
 author: Kamilkime
 website: https://www.spigotmc.org/resources/authors/kamilkime.52851/
 softdepend: [ProtocolLib]

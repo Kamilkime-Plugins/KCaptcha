@@ -37,6 +37,14 @@ public class Main extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		try {
+			Class.forName("org.sqlite.JDBC");
+		} catch(ClassNotFoundException e) {
+			Bukkit.getConsoleSender().sendMessage(StringUtils.color("&7&l[KCaptcha] &cProblem with SQLite driver, disabling plugin!"));
+			Bukkit.getPluginManager().disablePlugin(this);
+			return;
+		}
+		
 		DataManager.getInst().loadConfig();
 		
 		if(DataManager.getInst().rememberUUIDs) DataManager.getInst().loadUsers();

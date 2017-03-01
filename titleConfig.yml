@@ -9,7 +9,7 @@ configVersion: 1
 # Do you want to enable KTitle?
 # If you do not enable it - KCaptcha will not send any messages as title/subtitle/actionBar
 # Reminder - KTitle will work only on MC version 1.8 and up
-enableKTitle: true
+enableKTitle: false
 
 # Functions are locations, where the text will be shown by KTitle
 # If function is not enabled - messages connected with it will be ignored
